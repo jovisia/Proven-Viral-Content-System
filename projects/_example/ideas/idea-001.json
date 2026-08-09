@@ -1,0 +1,19 @@
+{
+  "id": "idea-001",
+  "title": "Text to video in 60 seconds",
+  "hook": "I typed one sentence and got this video.",
+  "concept": "Screen-style reveal: prompt appears on screen, then cuts to a cinematic AI-generated clip that matches the prompt. End card: Magic Hour logo + CTA.",
+  "platforms": ["instagram", "tiktok"],
+  "content_type_id": "short-form-hook",
+  "magichour_prompt": "Cinematic tracking shot through a neon-lit city at night, rain reflections on wet pavement, cyberpunk atmosphere, smooth camera movement, 8 seconds",
+  "magichour_params": {
+    "aspect_ratio": "9:16",
+    "end_seconds": 8,
+    "resolution": "720p",
+    "model": "default",
+    "audio": true
+  },
+  "requires_input": [],
+  "status": "ready",
+  "created_at": "2026-08-08T00:00:00Z"
+}

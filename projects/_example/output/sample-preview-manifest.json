@@ -1,0 +1,22 @@
+{
+  "mode": "preview",
+  "note": "Sample manifest — preview mode does not call the API or spend credits",
+  "project_slug": "_example",
+  "idea_path": "projects/_example/ideas/idea-001.json",
+  "request": {
+    "name": "Text to video in 60 seconds",
+    "end_seconds": 8,
+    "aspect_ratio": "9:16",
+    "resolution": "720p",
+    "model": "default",
+    "audio": true,
+    "style": {
+      "prompt": "Cinematic tracking shot through a neon-lit city at night..."
+    }
+  },
+  "credit_estimate": {
+    "value": null,
+    "confidence": "unknown",
+    "note": "Run generate with --confirm-spend to receive initial credits_charged from API"
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/magichour/proven-viral-content-automation/schemas/profile.schema.json",
+  "title": "Viral Content Project Profile",
+  "description": "Persistent brand and content profile created by /onboarding and updated by /research-ideas and /brainstorm",
+  "type": "object",
+  "required": ["schema_version", "project_slug", "created_at", "updated_at", "product", "content_types"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "project_slug": {
+      "type": "string",
+      "pattern": "^_?[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "description": "Unique folder name under projects/"
+    },
+    "project_name": {
+      "type": "string",
+      "description": "Human-readable project name"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "product": {
+      "type": "object",
+      "required": ["description", "type"],
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Product, service, or project description"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["product", "service", "project", "other"]
+        },
+        "website_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "website_analysis": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Agent-inferred facts from website (for confirmation only)"
+        }
+      }
+    },
+    "target_audience": {
+      "type": "string",
+      "description": "Target audience description"
+    },
+    "features_or_services": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Product features or service types"
+    },
+    "competitors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "website_url": { "type": "string", "format": "uri" },
+          "notes": { "type": "string" },
+          "researched": { "type": "boolean", "default": false }
+        }
+      }
+    },
+    "positioning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "style": {
+          "type": "string",
+          "description": "e.g. quirky, fun, serious, humorous"
+        },
+        "tone_notes": { "type": "string" },
+        "user_selected": { "type": "boolean" }
+      }
+    },
+    "content_rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exclude": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Topics or approaches to avoid"
+        },
+        "include": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Topics or approaches to emphasize"
+        }
+      }
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["instagram", "youtube", "x", "tiktok"]
+      },
+      "uniqueItems": true
+    },
+    "content_types": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "platforms"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "label": { "type": "string" },
+          "platforms": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["instagram", "youtube", "x", "tiktok"]
+            }
+          },
+          "magichour": {
+            "type": "object",
+            "description": "Suggested Magic Hour parameters for this content type",
+            "additionalProperties": true,
+            "properties": {
+              "aspect_ratio": { "type": "string", "enum": ["16:9", "9:16", "1:1"] },
+              "end_seconds": { "type": "number" },
+              "resolution": { "type": "string" },
+              "model": { "type": "string" },
+              "audio": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "content_preferences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "source", "created_at", "preference"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "source": {
+            "type": "string",
+            "enum": ["research-ideas", "brainstorm", "onboarding"]
+          },
+          "created_at": { "type": "string", "format": "date-time" },
+          "preference": { "type": "string" },
+          "topics": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "formats": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "onboarding_notes": {
+      "type": "string",
+      "description": "Optional freeform notes from onboarding"
+    }
+  }
+}

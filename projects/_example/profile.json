@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "project_slug": "_example",
+  "project_name": "Magic Hour Demo",
+  "created_at": "2026-08-08T00:00:00Z",
+  "updated_at": "2026-08-08T00:00:00Z",
+  "product": {
+    "description": "Magic Hour is an AI video generation platform that turns text prompts into professional videos in seconds.",
+    "type": "product",
+    "website_url": "https://magichour.ai",
+    "website_analysis": {
+      "inferred_audience": "Creators, marketers, and solopreneurs who need fast video content",
+      "inferred_positioning": "Professional, accessible, speed-focused"
+    }
+  },
+  "target_audience": "Solopreneurs and indie creators who want to post consistently on social without a video team",
+  "features_or_services": [
+    "Text-to-video generation",
+    "Multiple AI models (Kling, Veo, Sora, etc.)",
+    "API access for automation",
+    "Face swap and image-to-video tools"
+  ],
+  "competitors": [
+    {
+      "name": "Runway",
+      "website_url": "https://runwayml.com",
+      "researched": false
+    },
+    {
+      "name": "Pika",
+      "website_url": "https://pika.art",
+      "researched": false
+    }
+  ],
+  "positioning": {
+    "style": "fun",
+    "tone_notes": "Confident but approachable; show results fast",
+    "user_selected": true
+  },
+  "content_rules": {
+    "exclude": ["Direct competitor bashing", "Unverified performance claims"],
+    "include": ["Before/after transformations", "Speed demos", "Creator success stories"]
+  },
+  "platforms": ["instagram", "youtube", "tiktok", "x"],
+  "content_types": [
+    {
+      "id": "short-form-hook",
+      "label": "Short-form hook video (Reels / TikTok / Shorts)",
+      "platforms": ["instagram", "tiktok", "youtube"],
+      "magichour": {
+        "aspect_ratio": "9:16",
+        "end_seconds": 8,
+        "resolution": "720p",
+        "model": "default",
+        "audio": true
+      }
+    },
+    {
+      "id": "product-demo",
+      "label": "Product demo / feature showcase",
+      "platforms": ["youtube", "x"],
+      "magichour": {
+        "aspect_ratio": "16:9",
+        "end_seconds": 15,
+        "resolution": "1080p",
+        "model": "default",
+        "audio": true
+      }
+    }
+  ],
+  "content_preferences": [
+    {
+      "id": "pref-001",
+      "source": "research-ideas",
+      "created_at": "2026-08-08T00:00:00Z",
+      "preference": "Prefer transformation/reveal formats with a strong 3-second hook",
+      "topics": ["AI video creation", "solopreneur productivity"],
+      "formats": ["before-after", "speed-run demo"],
+      "notes": "User confirmed during research session"
+    }
+  ]
+}

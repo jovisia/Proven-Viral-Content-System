@@ -1,0 +1,31 @@
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+
+# Local user profile (optional per-agent)
+USER.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/settings.json
+
+# Generated project workspaces (user data)
+projects/*/
+!projects/.gitkeep
+!projects/_example/
+
+# Downloaded media and generation artifacts
+**/output/**/*.mp4
+**/output/**/*.webm
+**/output/**/*.mov
